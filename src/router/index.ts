@@ -73,7 +73,7 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory("/Re.Words/"),
+  history: createWebHashHistory("/Rewords-test/"),
   routes: routes,
 });
 
