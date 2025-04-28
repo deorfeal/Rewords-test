@@ -29,6 +29,11 @@ export const useFiltersStore = defineStore("filtersStore", () => {
         isActive: false,
       },
     },
+    switchHide: {
+      state: {
+        isActive: false,
+      }
+    }
   });
 
   function resetFilterState(): void {

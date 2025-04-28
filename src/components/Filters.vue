@@ -9,6 +9,7 @@ const filtersStore = useFiltersStore();
 const props = defineProps<{
   wordPair: Record<string, string>;
   withMix: boolean;
+  withHide: boolean;
 }>();
 
 const filtersData = ref<FiltersObjInterface>({
@@ -52,6 +53,19 @@ const filtersData = ref<FiltersObjInterface>({
     },
     icon: `${import.meta.env.BASE_URL}/images/mix-icon.svg`,
     text: "Mix",
+  },
+  switchHide: {
+    state: {
+      isShowed: props.withHide,
+      isActive: computed(
+        () => filtersStore.filtersState.switchHide.state.isActive
+      ),
+    },
+    select: {
+      isSelect: false,
+    },
+    icon: `${import.meta.env.BASE_URL}/images/eye-closed.svg`,
+    text: "Hide",
   },
 });
 

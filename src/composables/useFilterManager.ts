@@ -7,6 +7,7 @@ export function useFilterManager() {
   const filtersStore = useFiltersStore();
   const alertStore = useAlertStore();
   const filteredWords = ref();
+  const isHideActive = computed(() => filtersStore.filtersState.switchHide.state.isActive);
 
   watch(
     () => filtersStore.filtersState.switchLanguage.state.isActive,
@@ -142,5 +143,6 @@ export function useFilterManager() {
     filteredWords,
     resetFilter,
     wordPair,
+    isHideActive,
   };
 }

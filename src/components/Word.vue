@@ -15,6 +15,7 @@ const props = defineProps<{
   isSelected: boolean;
   withCheckbox: boolean;
   isActive: boolean;
+  isHideActive: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -141,7 +142,7 @@ watch(
         <span class="word__index">
           {{ index + 1 + "." }}
         </span>
-        <span>
+        <span class="word__word" :class="{ 'word__word--hide': isHideActive }">
           {{ word.word }}
         </span>
       </div>
@@ -226,6 +227,13 @@ watch(
   }
 
   &__index {
+  }
+
+  &__word {
+    transition: filter 0.3s;
+    &--hide {
+      filter: blur(3px);
+    }
   }
 
   &__translate {

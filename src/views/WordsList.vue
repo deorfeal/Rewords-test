@@ -40,7 +40,7 @@ const {
   refreshCategoriesAndWords,
 } = useTubsManager();
 
-const { filteredWords, wordPair, resetFilter } = useFilterManager();
+const { filteredWords, wordPair, resetFilter, isHideActive } = useFilterManager();
 
 onMounted(() => {
   wordsStore.reloadWords();
@@ -79,10 +79,11 @@ provide("optionsType", category.value);
           />
           <Filters
             :withMix="category === 'repeat'"
+            :withHide="category === 'repeat'"
             class="wordspage__filters"
             :wordPair="wordPair"
           />
-          <Words class="wordspage__words" :wordsList="filteredWords || []" />
+          <Words class="wordspage__words" :wordsList="filteredWords || []" :isHideActive="isHideActive" />
         </template>
         <Empty v-else />
       </div>

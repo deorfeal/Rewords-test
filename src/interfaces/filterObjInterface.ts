@@ -22,4 +22,5 @@ export interface FiltersObjInterface {
   switchLanguage: FilterItem; // Фильтр для смены языка
   sortBy: FilterItem; // Фильтр для сортировки
   switchMix?: FilterItem; // Фильтр для перемешивания
+  switchHide?: FilterItem; // Фильтр для перемешивания
 }

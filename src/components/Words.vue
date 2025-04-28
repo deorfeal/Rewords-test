@@ -9,7 +9,10 @@ import WordOptions from "./WordOptions.vue";
 
 const searchStore = useSearchStore();
 
-const props = defineProps<{ wordsList: DocumentData[] }>();
+const props = defineProps<{ 
+  wordsList: DocumentData[], 
+  isHideActive: boolean,
+}>();
 
 const { handleOption } = useWordOptions();
 const {
@@ -57,6 +60,7 @@ function handleUpdateActiveWordRef(wordRef: HTMLElement) {
           :withCheckbox="withCheckboxes"
           :isActive="item.id === searchStore.selectedWord?.id ? true : false"
           @updateActiveWordRef="handleUpdateActiveWordRef"
+          :isHideActive="isHideActive"
         />
       </li>
     </ul>
